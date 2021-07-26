@@ -1,0 +1,20 @@
+$header-height: 55px;
+
+header {
+	.navbar {
+		background-color: #000;
+		min-height: $header-height;
+		border: none;
+		border-radius: 0;
+		.navbar-header {
+			padding-right: 15px;
+			border-right: 1px solid #394045;
+		}
+		.navbar-brand {
+			width: 110px;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

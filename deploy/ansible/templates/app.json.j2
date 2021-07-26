@@ -1,0 +1,25 @@
+{
+	"ports": [{{ ports|join(",") }}],
+	"domain": "{{ domain }}",
+	"auth_server": {
+		"host": "{{ auth_server.host }}"
+	},
+	"account_server": {
+		"host": "{{ account_server.host }}"
+	},
+	"account_web_server": {
+		"host": "{{ account_web_server.host }}"
+	},
+	"checkout_web_server": {
+		"host": "{{ checkout_web_server.host }}"
+	},
+	"consent_web_server": {
+		"host": "{{ consent_web_server.host }}"
+	},
+	"metrics_server": {
+		"host": "{{ metrics_server.host }}"
+	},
+	"matomo": {
+		"site_id": "{{ matomo.site_id }}"
+	}
+}

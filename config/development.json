@@ -1,0 +1,25 @@
+{
+	"ports": [3000],
+	"domain": "localhost",
+	"auth_server": {
+		"host": "http://localhost:8080"
+	},
+	"account_server": {
+		"host": "http://localhost:8081"
+	},
+	"account_web_server": {
+		"host": "http://localhost:3001"
+	},
+	"checkout_web_server": {
+		"host": "http://localhost:3002"
+	},
+	"consent_web_server": {
+		"host": "http://localhost:3004"
+	},
+	"metrics_server": {
+		"host": "https://staging-d.ghostery.com"
+	},
+	"matomo": {
+		"site_id": 2
+	}
+}

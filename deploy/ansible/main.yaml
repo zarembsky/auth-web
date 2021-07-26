@@ -1,0 +1,25 @@
+---
+
+- hosts: webservers
+  remote_user: ubuntu
+  become: True
+  become_method: sudo
+  become_user: root
+  roles:
+    - common
+    - nginx
+    - nodejs
+
+  tasks:
+    - name: Install forever
+      npm:
+        name: forever
+        global: True
+        state: latest
+
+    - name: Install app config file
+      template:
+        src: app.json.j2
+        dest: /etc/opt/ghostery/{{ app_name }}/conf.json
+        owner: root
+        mode: 0644

@@ -1,0 +1,10 @@
+[main]
+host = https://www.transifex.com
+
+[ghostery-auth-web.develop-en-json]
+file_filter = client/public/locales/<lang>.json
+minimum_perc = 0
+source_file = client/public/locales/en.json
+source_lang = en
+type = KEYVALUEJSON
+lang_map = zh_CN: zh-CN, zh_TW: zh-TW, pt_BR: pt-BR

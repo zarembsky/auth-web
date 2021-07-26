@@ -1,0 +1,42 @@
+<!doctype html>
+<!--
+ * Ghostery AUTH Web
+ * https://signon.ghostery.com/
+ *
+ * Copyright 2018 Ghostery, Inc. All rights reserved.
+-->
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta name="referrer" content="origin">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/images/favicons/manifest.json">
+	<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/images/favicons/favicon.ico">
+	<meta name="apple-mobile-web-app-title" content="Ghostery">
+	<meta name="application-name" content="Ghostery">
+	<meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+	<link href="/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+	<link href="/css/styles.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="app">
+		<div id="content"></div>
+	</div>
+
+	<div id="ghostery-consent"></div>
+	<script src="<%= config.consent_web_server.host %>/v1.js"></script>
+
+	<script>
+		const Config = <%-JSON.stringify(config)%>
+	</script>
+	<script src="/js/scripts.js"></script>
+</body>
+</html>

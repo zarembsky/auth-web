@@ -1,0 +1,3 @@
+[submodule "deploy/ansible/roles"]
+	path = deploy/ansible/roles
+	url = git@github.com:ghostery/ansible-roles

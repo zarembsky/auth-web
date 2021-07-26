@@ -1,0 +1,16 @@
+.loading-modal {
+	.modal-content {
+		padding-top: 50%;
+		margin-top: -10%;
+		border-radius: 0;
+		border: 0;
+		background: transparent;
+		box-shadow: none;
+		text-align: center;
+		color: #fff;
+	}
+	.glyphicon.spinning {
+		animation: spin 1s infinite linear;
+		-webkit-animation: spin2 1s infinite linear;
+	}
+}

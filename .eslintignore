@@ -1,0 +1,11 @@
+# ESLint Ignore
+
+## Unit Test Files
+*.test.js
+*.test.jsx
+
+## Precompiled
+dist/
+
+## Node Modules
+node_modules/

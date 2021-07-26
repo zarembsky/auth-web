@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+  pre_build:
+    commands:
+      - yarn --ignore-optional
+  build:
+    commands:
+      - yarn lint
+      - yarn test.unit --verbose=false
+      - yarn build.prod
+      - |
+        if expr "${CODEBUILD_INITIATOR}" : "codepipeline/.*" >/dev/null; then
+          mkdir -p $(echo $CODEBUILD_SRC_DIR)/deploy/ansible/roles;
+          cp -r $(echo $CODEBUILD_SRC_DIR_ansibleRoles)/* $(echo $CODEBUILD_SRC_DIR)/deploy/ansible/roles/;
+        fi
+  post_build:
+    commands:
+      - rm -rf ./node_modules
+      - yarn install --production --ignore-optional
+
+artifacts:
+  files:
+    - index.js
+    - config/**/*
+    - node_modules/**/*
+    - dist/**/*
+    - appspec.yml
+    - deploy/**/*

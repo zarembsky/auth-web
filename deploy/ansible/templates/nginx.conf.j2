@@ -1,0 +1,28 @@
+# {{ ansible_managed }}
+
+upstream {{ app_name }} {
+{% for port in ports %}
+	server 127.0.0.1:{{ port }};
+{% endfor %}
+}
+
+server {
+	server_name {{ hostnames|join(" ") }};
+	listen {{ nginx.port }};
+	server_tokens off;
+	add_header X-Frame-Options "DENY";
+
+	location = /healthcheck {
+		proxy_pass http://{{ app_name }};
+		access_log off;
+	}
+
+	location / {
+		# Redirect all traffic to https
+		if ($http_x_forwarded_proto != "https") {
+			rewrite ^(.*)$ https://$server_name$1 permanent;
+		}
+
+		proxy_pass http://{{ app_name }};
+	}
+}

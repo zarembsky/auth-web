@@ -1,0 +1,34 @@
+---
+
+ports: [3000, 3001, 3002, 3003]
+domain: ghostery.com
+
+auth_server:
+    host: "https://consumerapi.ghostery.com"
+
+account_server:
+    host: "https://accountapi.ghostery.com"
+
+account_web_server:
+    host: "https://account.ghostery.com"
+
+checkout_web_server:
+    host: "https://checkout.ghostery.com"
+
+consent_web_server:
+    host: "https://consent.ghostery.com"
+
+metrics_server:
+    host: "https://d.ghostery.com"
+
+# nginx
+vpc_cidr: "10.20.0.0/16"
+hostnames: ['signon.ghostery.com']
+disallow: true
+config_file_template: nginx.conf.j2
+
+nginx:
+    port: 80
+
+matomo:
+  site_id: 1

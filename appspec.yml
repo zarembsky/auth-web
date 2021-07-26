@@ -1,0 +1,38 @@
+# This is an appspec.yml file for use with AWS CodeDeploy.
+# For help completing this file, see the "AppSpec File Reference" in the
+#   "AWS CodeDeploy User Guide" at
+#   http://docs.aws.amazon.com/codedeploy/latest/userguide/app-spec-ref.html
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/ghostery/auth-web
+permissions:
+  - object: /opt/ghostery/auth-web/deploy/codedeploy
+    pattern: "*.sh"
+    owner: root
+    group: root
+    mode: 777
+    type:
+      - file
+hooks:
+  ApplicationStop:
+    - location: deploy/codedeploy/application_stop.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: deploy/codedeploy/before_install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: deploy/codedeploy/after_install.sh
+      timeout: 600
+      runas: root
+  ApplicationStart:
+    - location: deploy/codedeploy/application_start.sh
+      timeout: 300
+      runas: root
+  ValidateService:
+    - location: deploy/codedeploy/validate_service.sh
+      timeout: 300
+      runas: root

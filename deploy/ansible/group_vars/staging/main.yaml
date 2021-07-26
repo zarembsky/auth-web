@@ -1,0 +1,34 @@
+---
+
+ports: [3000, 3001, 3002, 3003]
+domain: ghosterystage.com
+
+auth_server:
+    host: "https://consumerapi.ghosterystage.com"
+
+account_server:
+    host: "https://accountapi.ghosterystage.com"
+
+account_web_server:
+    host: "https://account.ghosterystage.com"
+
+checkout_web_server:
+    host: "https://checkout.ghosterystage.com"
+
+consent_web_server:
+    host: "https://consent.ghosterystage.com"
+
+metrics_server:
+    host: "https://staging-d.ghostery.com"
+
+# nginx
+vpc_cidr: "10.20.0.0/16"
+hostnames: ['signon.ghosterystage.com']
+disallow: true
+config_file_template: nginx.conf.j2
+
+nginx:
+    port: 80
+
+matomo:
+  site_id: 2

@@ -1,0 +1,7 @@
+---
+
+app_name: auth-web
+app_path: "/opt/ghostery/{{ app_name }}"
+
+# nodejs
+nodejs_version: 8
